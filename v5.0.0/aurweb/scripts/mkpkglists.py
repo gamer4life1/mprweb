@@ -15,9 +15,9 @@ def main():
     conn = aurweb.db.Connection()
 
     datestr = datetime.datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S GMT")
-    pkglist_header = "# AUR package list, generated on " + datestr
-    pkgbaselist_header = "# AUR package base list, generated on " + datestr
-    userlist_header = "# AUR user name list, generated on " + datestr
+    pkglist_header = "# MPR package list, generated on " + datestr
+    pkgbaselist_header = "# MPR package base list, generated on " + datestr
+    userlist_header = "# MPR user name list, generated on " + datestr
 
     with gzip.open(packagesfile, "w") as f:
         f.write(bytes(pkglist_header + "\n", "UTF-8"))

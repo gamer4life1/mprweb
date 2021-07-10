@@ -135,7 +135,7 @@ class ResetKeyNotification(Notification):
             return [(self._to, self._lang)]
 
     def get_subject(self, lang):
-        return self._l10n.translate('AUR Password Reset', lang)
+        return self._l10n.translate('MPR Password Reset', lang)
 
     def get_body(self, lang):
         return self._l10n.translate(
@@ -151,12 +151,12 @@ class ResetKeyNotification(Notification):
 
 class WelcomeNotification(ResetKeyNotification):
     def get_subject(self, lang):
-        return self._l10n.translate('Welcome to the Arch User Repository',
+        return self._l10n.translate('Welcome to the makedeb Package Repository',
                                     lang)
 
     def get_body(self, lang):
         return self._l10n.translate(
-                'Welcome to the Arch User Repository! In order to set an '
+                'Welcome to the makedeb Package Repository! In order to set an '
                 'initial password for your new account, please click the '
                 'link [1] below. If the link does not work, try copying and '
                 'pasting it into your browser.', lang)
@@ -183,7 +183,7 @@ class CommentNotification(Notification):
         return self._recipients
 
     def get_subject(self, lang):
-        return self._l10n.translate('AUR Comment for {pkgbase}',
+        return self._l10n.translate('MPR Comment for {pkgbase}',
                                     lang).format(pkgbase=self._pkgbase)
 
     def get_body(self, lang):
@@ -227,7 +227,7 @@ class UpdateNotification(Notification):
         return self._recipients
 
     def get_subject(self, lang):
-        return self._l10n.translate('AUR Package Update: {pkgbase}',
+        return self._l10n.translate('MPR Package Update: {pkgbase}',
                                     lang).format(pkgbase=self._pkgbase)
 
     def get_body(self, lang):
@@ -275,7 +275,7 @@ class FlagNotification(Notification):
         return self._recipients
 
     def get_subject(self, lang):
-        return self._l10n.translate('AUR Out-of-date Notification for '
+        return self._l10n.translate('MPR Out-of-date Notification for '
                                     '{pkgbase}',
                                     lang).format(pkgbase=self._pkgbase)
 
@@ -314,7 +314,7 @@ class OwnershipEventNotification(Notification):
         return self._recipients
 
     def get_subject(self, lang):
-        return self._l10n.translate('AUR Ownership Notification for {pkgbase}',
+        return self._l10n.translate('MPR Ownership Notification for {pkgbase}',
                                     lang).format(pkgbase=self._pkgbase)
 
     def get_refs(self):
@@ -349,7 +349,7 @@ class ComaintainershipEventNotification(Notification):
         return [(self._to, self._lang)]
 
     def get_subject(self, lang):
-        return self._l10n.translate('AUR Co-Maintainer Notification for '
+        return self._l10n.translate('MPR Co-Maintainer Notification for '
                                     '{pkgbase}',
                                     lang).format(pkgbase=self._pkgbase)
 
@@ -393,7 +393,7 @@ class DeleteNotification(Notification):
         return self._recipients
 
     def get_subject(self, lang):
-        return self._l10n.translate('AUR Package deleted: {pkgbase}',
+        return self._l10n.translate('MPR Package deleted: {pkgbase}',
                                     lang).format(pkgbase=self._old_pkgbase)
 
     def get_body(self, lang):

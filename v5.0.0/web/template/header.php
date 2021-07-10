@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xml:lang="<?= htmlspecialchars($LANG, ENT_QUOTES) ?>" lang="<?= htmlspecialchars($LANG, ENT_QUOTES) ?>">
   <head>
-    <title>AUR (<?= htmlspecialchars($LANG); ?>)<?php if ($title != "") { print " - " . htmlspecialchars($title); } ?></title>
+    <title>MPR (<?= htmlspecialchars($LANG); ?>)<?php if ($title != "") { print " - " . htmlspecialchars($title); } ?></title>
 	<link rel='stylesheet' type='text/css' href='/css/archweb.css' />
 	<link rel='stylesheet' type='text/css' href='/css/aurweb.css' />
 	<link rel='shortcut icon' href='/images/favicon.ico' />
@@ -19,14 +19,9 @@
 			<div id="archnavbarlogo"><h1><a href="/" title="Return to the main page">Arch Linux User Repository</a></h1></div>
 			<div id="archnavbarmenu">
 				<ul id="archnavbarlist">
-					<li id="anb-home"><a href="https://www.archlinux.org/" title="Arch news, packages, projects and more">Home</a></li>
-					<li id="anb-packages"><a href="https://www.archlinux.org/packages/" title="Arch Package Database">Packages</a></li>
-					<li id="anb-forums"><a href="https://bbs.archlinux.org/" title="Community forums">Forums</a></li>
-					<li id="anb-wiki"><a href="https://wiki.archlinux.org/" title="Community documentation">Wiki</a></li>
-					<li id="anb-bugs"><a href="https://bugs.archlinux.org/" title="Report and track bugs">Bugs</a></li>
-					<li id="anb-security"><a href="https://security.archlinux.org/" title="Arch Linux Security Tracker">Security</a></li>
-					<li id="anb-aur"><a href="/" title="Arch Linux User Repository">AUR</a></li>
-					<li id="anb-download"><a href="https://www.archlinux.org/download/" title="Get Arch Linux">Download</a></li>
+					<li><a href="/" title="makedeb Package Repository">MPR</a></li>
+					<li><a href="https://docs.hunterwittenborn.com/makedeb" title="makedeb Documentation">Docs</a></li>
+					<li><a href="https://matrix.to/#/!KOdBeHhHDQPQNLgioI:hunterwittenborn.com?via=hunterwittenborn.com" title="Get Support">Support</a></li>
 				</ul>
 			</div>
 		</div><!-- #archnavbar -->
@@ -67,7 +62,7 @@
 						<?php if (has_credential(CRED_TU_LIST_VOTES)): ?><li><a href="<?= get_uri('/tu/'); ?>"><?= __("Trusted User"); ?></a></li><?php endif; ?>
 						<li><a href="<?= get_uri('/logout/'); ?>"><?= __("Logout"); ?></a></li>
 					<?php else: ?>
-						<li><a href="<?= get_uri('/'); ?>">AUR <?= __("Home"); ?></a></li>
+						<li><a href="<?= get_uri('/'); ?>">MPR <?= __("Home"); ?></a></li>
 						<li><a href="<?= get_uri('/packages/'); ?>"><?= __("Packages"); ?></a></li>
 						<li><a href="<?= get_uri('/register/'); ?>"><?= __("Register"); ?></a></li>
 						<?php if (config_get_bool('options', 'disable_http_login') && empty($_SERVER['HTTPS'])): ?>
@@ -79,4 +74,3 @@
 				</ul>
 			</div><!-- #archdev-navbar -->
 			<!-- Start of main content -->
-
