@@ -1,5 +1,5 @@
 <p>
-	<?= __('You can use this form to permanently delete the AUR account %s.', '<strong>' . htmlspecialchars($username) . '</strong>') ?>
+	<?= __('You can use this form to permanently delete the MPR account %s.', '<strong>' . htmlspecialchars($username) . '</strong>') ?>
 </p>
 <p>
 	<?= __('%sWARNING%s: This action cannot be undone.', '<strong>', '</strong>') ?>

@@ -85,7 +85,7 @@
 			<input type="checkbox" name="H" id="id_hide" <?= $H ? 'checked="checked"' : '' ?> />
 		</p>
 		<p>
-			<em><?= __("If you do not hide your email address, it is visible to all registered AUR users. If you hide your email address, it is visible to members of the Arch Linux staff only.") ?></em>
+			<em><?= __("If you do not hide your email address, it is visible to all registered MPR users. If you hide your email address, it is visible to MPR Trusted Users only.") ?></em>
 		</p>
 
 		<p>
@@ -96,7 +96,7 @@
 			<em>
 				<?= __("Optionally provide a secondary email address that can be used to restore your account in case you lose access to your primary email address.") ?>
 				<?= __("Password reset links are always sent to both your primary and your backup email address.") ?>
-				<?= __("Your backup email address is always only visible to members of the Arch Linux staff, independent of the %s setting.", "<em>" . __("Hide Email Address") . "</em>") ?>
+				<?= __("Your backup email address is always only visible to MPR Trusted Users, independent of the %s setting.", "<em>" . __("Hide Email Address") . "</em>") ?>
 			</em>
 		</p>
 
@@ -199,7 +199,7 @@
 			<input type="password" size="30" name="passwd" id="id_passwd_current" value="" />
 		</p>
 	<?php else: ?>
-		<legend><?= __("To protect the AUR against automated account creation, we kindly ask you to provide the output of the following command:") ?> <code><?= htmlspecialchars($captcha_challenge) ?></code></legend>
+		<legend><?= __("To protect the MPR against automated account creation, we kindly ask you to provide the output of the following command:") ?> <code><?= htmlspecialchars($captcha_challenge) ?></code></legend>
 		<p>
 			<label for="id_captcha"><?= __("Answer") ?>:</label>
 			<input type="text" size="30" maxlength="6" name="captcha" id="id_captcha" value="<?= htmlspecialchars($captcha, ENT_QUOTES) ?>" /> (<?= __("required") ?>)

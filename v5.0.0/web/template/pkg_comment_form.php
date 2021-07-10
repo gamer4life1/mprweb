@@ -9,7 +9,7 @@
 				<input type="hidden" name="token" value="<?= htmlspecialchars($_COOKIE['AURSID']) ?>" />
 			</div>
 			<p>
-				<?= __("Git commit identifiers referencing commits in the AUR package repository and URLs are converted to links automatically.") ?>
+				<?= __("Git commit identifiers referencing commits in the MPR package repository and URLs are converted to links automatically.") ?>
 				<?= __("%sMarkdown syntax%s is partially supported.", '<a href="https://daringfireball.net/projects/markdown/syntax">', "</a>") ?>
 			</p>
 			<p>
