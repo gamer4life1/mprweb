@@ -69,73 +69,35 @@ if (isset($_COOKIE["AURSID"])) {
 		</div>
 		<?php else: ?>
 		<div id="intro" class="box">
-			<h2>AUR <?= __("Home"); ?></h2>
+			<h2>MPR <?= __("Home"); ?></h2>
 			<p>
 			<?php
 			echo __(
-				'Welcome to the AUR! Please read the %sAUR User Guidelines%s and %sAUR TU Guidelines%s for more information.',
-				'<a href="https://wiki.archlinux.org/index.php/AUR_User_Guidelines">',
+				'Welcome to the MPR! Please read the %MPR Docs%s for more information.',
+				'<a href="https://docs.hunterwittenborn.com/makedeb/makedeb-package-repository/intro">',
 				'</a>',
-				'<a href="https://wiki.archlinux.org/index.php/AUR_Trusted_User_Guidelines">',
-				'</a>'
 				);
 			?>
 			<?php
 			echo __(
-				'Contributed PKGBUILDs %smust%s conform to the %sArch Packaging Standards%s otherwise they will be deleted!',
+				'Contributed PKGBUILDs %smust%s conform to the %sMPR User Guidelines%s or they will be subject to deletion!',
 				'<strong>', '</strong>',
-				'<a href="https://wiki.archlinux.org/index.php/Arch_Packaging_Standards">',
+				'<a href="https://docs.hunterwittenborn.com/makedeb/makedeb-package-repository/mpr-user-guidelines">',
 				'</a>'
 				);
 			?>
-			<?= __('Remember to vote for your favourite packages!'); ?>
-			<?= __('Some packages may be provided as binaries in [community].'); ?>
+			<?= __('Remember to vote for your favorite packages!'); ?>
 			</p>
 			<p class="important">
 			<?= __('DISCLAIMER') ?>:
-			<?= __('AUR packages are user produced content. Any use of the provided files is at your own risk.'); ?>
+			<?= __('MPR packages are user produced content. Any use of the provided files is at your own risk.'); ?>
 			</p>
-			<p class="readmore"><a href="https://wiki.archlinux.org/index.php/AUR"><?= __('Learn more...') ?></a></p>
+			<p class="readmore"><a href="https://docs.hunterwittenborn.com/makedeb/makedeb-package-repository/intro"><?= __('Learn more...') ?></a></p>
 		</div>
 		<div id="news">
 			<h3><a><?= __('Support') ?></a><span class="arrow"></span></h3>
-			<h4><?= __('Package Requests') ?></h4>
-			<div class="article-content">
-			<p>
-			<?php
-			echo __(
-				'There are three types of requests that can be filed in the %sPackage Actions%s box on the package details page:',
-				'<var>',
-				'</var>'
-				);
-			?>
-			</p>
-			<ul>
-				<li><em><?= __('Orphan Request') ?></em>: <?= __('Request a package to be disowned, e.g. when the maintainer is inactive and the package has been flagged out-of-date for a long time.') ?></li>
-				<li><em><?= __('Deletion Request') ?></em>: <?= __('Request a package to be removed from the Arch User Repository. Please do not use this if a package is broken and can be fixed easily. Instead, contact the package maintainer and file orphan request if necessary.') ?></li>
-				<li><em><?= __('Merge Request') ?></em>: <?= __('Request a package to be merged into another one. Can be used when a package needs to be renamed or replaced by a split package.') ?></li>
-			</ul>
-			<p>
-			<?php
-			echo __(
-				'If you want to discuss a request, you can use the %saur-requests%s mailing list. However, please do not use that list to file requests.',
-				'<a href="https://mailman.archlinux.org/mailman/listinfo/aur-requests">',
-				'</a>'
-				);
-			?>
-			</p>
-			</div>
 			<h4><?= __('Submitting Packages') ?></h4>
 			<div class="article-content">
-			<p>
-			<?php
-			echo __(
-				'Git over SSH is now used to submit packages to the AUR. See the %sSubmitting packages%s section of the Arch User Repository ArchWiki page for more details.',
-				'<a href="https://wiki.archlinux.org/index.php/Arch_User_Repository#Submitting_packages">',
-				'</a>'
-				);
-			?>
-			</p>
 			<?php if (config_section_exists('fingerprints')): ?>
 			<p>
 				<?= __('The following SSH fingerprints are used for the AUR:') ?>
@@ -149,31 +111,11 @@ if (isset($_COOKIE["AURSID"])) {
 			</div>
 			<h4><?= __('Discussion') ?></h4>
 			<div class="article-content">
-			<p>
-			<?php
-			echo __(
-				'General discussion regarding the Arch User Repository (AUR) and Trusted User structure takes place on %saur-general%s. For discussion relating to the development of the AUR web interface, use the %saur-dev%s mailing list.',
-				'<a href="https://mailman.archlinux.org/mailman/listinfo/aur-general">',
-				'</a>',
-				'<a href="https://mailman.archlinux.org/mailman/listinfo/aur-dev">',
-				'</a>'
-				);
-			?>
-			</p>
+			<p>General discussion regarding the MPR takes place on the <a href="https://matrix.to/#/#mpr:hunterwittenborn.com">MPR Matrix room</a>.</p>
 			</div>
 			<h4><?= __('Bug Reporting') ?></h4>
 			<div class="article-content">
-			<p>
-			<?php
-			echo __(
-				'If you find a bug in the AUR web interface, please fill out a bug report on our %sbug tracker%s. Use the tracker to report bugs in the AUR web interface %sonly%s. To report packaging bugs contact the package maintainer or leave a comment on the appropriate package page.',
-				'<a href="https://bugs.archlinux.org/index.php?project=2">',
-				'</a>',
-				'<strong>',
-				'</strong>'
-				);
-			?>
-			</p>
+			<p>Issues and bugs related to the MPR should be posted on the GitHub project's <a href="https://github.com/makedeb/mprweb/issues">issue page</a>.</p>
 			</div>
 		</div>
 		<?php endif; ?>

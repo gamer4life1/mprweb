@@ -26,15 +26,15 @@ $rss->xslStyleSheet = false;
 $rss->encoding = "UTF-8";
 
 #All the general RSS setup
-$rss->title = "AUR Newest Packages";
-$rss->description = "The latest and greatest packages in the AUR";
+$rss->title = "MPR Newest Packages";
+$rss->description = "The latest and greatest packages in the MPR";
 $rss->link = "${protocol}://{$host}";
 $rss->syndicationURL = "{$protocol}://{$host}" . get_uri('/rss/');
 $image = new FeedImage();
-$image->title = "AUR";
+$image->title = "MPR";
 $image->url = "{$protocol}://{$host}/css/archnavbar/aurlogo.png";
 $image->link = $rss->link;
-$image->description = "AUR Newest Packages Feed";
+$image->description = "MPR Newest Packages Feed";
 $rss->image = $image;
 
 #Get the latest packages and add items for them

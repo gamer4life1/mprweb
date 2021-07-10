@@ -9,10 +9,10 @@ if (!$disable_http_login || (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'])) {
 	$login_error = $login['error'];
 }
 
-html_header('AUR ' . __("Login"));
+html_header('MPR ' . __("Login"));
 ?>
 <div id="dev-login" class="box">
-	<h2>AUR <?= __('Login') ?></h2>
+	<h2>MPR <?= __('Login') ?></h2>
 	<?php if (isset($_COOKIE["AURSID"])): ?>
 	<p>
 		<?= __("Logged-in as: %s", '<strong>' . username_from_sid($_COOKIE["AURSID"]) . '</strong>'); ?>

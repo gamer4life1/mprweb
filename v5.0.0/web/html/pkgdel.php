@@ -11,7 +11,7 @@ if (has_credential(CRED_PKGBASE_DELETE)): ?>
 <div class="box">
 	<h2><?= __('Delete Package') ?>: <?= htmlspecialchars($pkgbase_name) ?></h2>
 	<p>
-		<?= __('Use this form to delete the package base %s%s%s and the following packages from the AUR: ',
+		<?= __('Use this form to delete the package base %s%s%s and the following packages from the MPR: ',
 			'<strong>', htmlspecialchars($pkgbase_name), '</strong>'); ?>
 	</p>
 	<ul>

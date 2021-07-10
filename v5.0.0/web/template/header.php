@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xml:lang="<?= htmlspecialchars($LANG, ENT_QUOTES) ?>" lang="<?= htmlspecialchars($LANG, ENT_QUOTES) ?>">
   <head>
-    <title>MPR (<?= htmlspecialchars($LANG); ?>)<?php if ($title != "") { print " - " . htmlspecialchars($title); } ?></title>
+    <title>MPR<?php if ($title != "") { print " - " . htmlspecialchars($title); } ?></title>
 	<link rel='stylesheet' type='text/css' href='/css/archweb.css' />
 	<link rel='stylesheet' type='text/css' href='/css/aurweb.css' />
 	<link rel='shortcut icon' href='/images/favicon.ico' />
@@ -16,12 +16,12 @@
   </head>
 	<body>
 		<div id="archnavbar" class="anb-aur">
-			<div id="archnavbarlogo"><h1><a href="/" title="Return to the main page">Arch Linux User Repository</a></h1></div>
+			<div id="archnavbarlogo"><h1><a href="/" title="Return to the main page">makedeb Package Repository</a></h1></div>
 			<div id="archnavbarmenu">
 				<ul id="archnavbarlist">
-					<li><a href="/" title="makedeb Package Repository">MPR</a></li>
-					<li><a href="https://docs.hunterwittenborn.com/makedeb" title="makedeb Documentation">Docs</a></li>
-					<li><a href="https://matrix.to/#/!KOdBeHhHDQPQNLgioI:hunterwittenborn.com?via=hunterwittenborn.com" title="Get Support">Support</a></li>
+					<li id="anb-aur"><a href="/" title="makedeb Package Repository">MPR</a></li>
+					<li><a target="_blank" rel="noopener noreferrer" href="https://docs.hunterwittenborn.com/makedeb" title="makedeb Documentation">Docs</a></li>
+					<li><a target="_blank" rel="noopener noreferrer" href="https://matrix.to/#/!KOdBeHhHDQPQNLgioI:hunterwittenborn.com?via=hunterwittenborn.com" title="Get Support">Support</a></li>
 				</ul>
 			</div>
 		</div><!-- #archnavbar -->

@@ -53,7 +53,7 @@ if (has_credential(CRED_PKGBASE_FLAG)): ?>
 	<?php if (pkgbase_is_vcs($base_id)): ?>
 	<p class="error">
 		This seems to be a VCS package. Please do <strong>not</strong>
-		flag it out-of-date if the package version in the AUR does not
+		flag it out-of-date if the package version in the MPR does not
 		match the most recent commit. Flagging this package should only
 		be done if the sources moved or changes in the PKGBUILD are
 		required because of recent upstream changes.

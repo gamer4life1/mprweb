@@ -15,10 +15,10 @@ if (!$terms) {
 	header("Location: " . get_uri('/'));
 }
 
-html_header('AUR ' . __("Terms of Service"));
+html_header('MPR ' . __("Terms of Service"));
 ?>
 <div id="dev-login" class="box">
-	<h2>AUR <?= __('Terms of Service') ?></h2>
+	<h2>MPR <?= __('Terms of Service') ?></h2>
 	<?php if (isset($_COOKIE["AURSID"])): ?>
 	<form method="post" action="<?= get_uri('/tos') ?>">
 		<fieldset>

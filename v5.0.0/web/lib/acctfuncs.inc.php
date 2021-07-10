@@ -1518,7 +1518,7 @@ function get_captcha_salts() {
  */
 function get_captcha_challenge($salt) {
 	$token = substr(md5($salt), 0, 3);
-	return "LC_ALL=C pacman -V|sed -r 's#[0-9]+#" . $token . "#g'|md5sum|cut -c1-6";
+	return "makedeb --dur-check|sed -r 's#[0-9]+#" . $token . "#g'|md5sum|cut -c1-6";
 }
 
 /*

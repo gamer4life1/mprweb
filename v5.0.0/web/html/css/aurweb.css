@@ -10,6 +10,7 @@
 
 #lang_sub {
   float: right;
+  display: none;
 }
 
 .pkglist-nav .page {
