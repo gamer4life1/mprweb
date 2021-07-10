@@ -1,0 +1,61 @@
+aurweb Translation
+==================
+
+This document describes how to create and maintain aurweb translations.
+
+Creating an aurweb translation requires a Transifex (http://www.transifex.com/)
+account. You will need to register with a translation team on the aurweb
+project page (http://www.transifex.com/projects/p/aurweb/).
+
+
+Creating a New Translation
+--------------------------
+
+Before beginning, please sign up for an Transifex account and request the
+addition of a new translation team for the aurweb project. Also, please do not
+translate if you are unwilling to maintain or find someone to maintain the
+translation. This is due to the fact that aurweb is a rapidly evolving project
+and there are constantly new strings to be translated. If the translations get
+too out of sync with the released versions, there will be too many untranslated
+strings for the translation to be usable, and it may have to be disabled.
+
+1. Check out the aurweb source using git:
+
+$ git clone git://git.archlinux.org/aurweb.git aurweb-git
+
+2. Go into the "po/" directory in the aurweb source and run msginit(1) to
+   create a initial translation file from our translation catalog:
+
+$ cd aurweb-git
+$ git checkout master
+$ git pull
+$ cd po
+$ msginit -l <locale> -o <locale>.po -i aurweb.pot
+
+3. Use some editor or a translation helper like poedit to add translations:
+
+$ poedit <locale>.po
+
+5. If you have a working aurweb setup, add a line for the new translation in
+   "web/lib/config.inc.php.proto" and test if everything looks right.
+
+6. Upload the newly created ".po" file to Transifex. If you don't like the web
+   interface, you can also use transifex-client to do that (see below).
+
+
+Updating an Existing Translation
+--------------------------------
+
+1. Download current translation files from Transifex. You can also do this
+   using transifex-client which is available through the AUR:
+
+$ tx pull -a
+
+2. Update the existing translation file using an editor or a tool like poedit:
+
+$ poedit po/<locale>.po
+
+3. Push the updated translation file back to Transifex. Using transifex-client,
+   this works as follows:
+
+$ tx push -r aurweb.aurwebpot -t -l <locale>

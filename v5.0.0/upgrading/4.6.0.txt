@@ -1,0 +1,37 @@
+1. Add DepDesc column to PackageDepends and split dependency names:
+
+---
+ALTER TABLE PackageDepends ADD COLUMN DepDesc VARCHAR(255) NULL DEFAULT NULL;
+UPDATE PackageDepends
+	SET DepDesc = SUBSTRING(DepName FROM POSITION(': ' IN DepName) + 2)
+	WHERE POSITION(': ' IN DepName) > 0;
+UPDATE PackageDepends
+	SET DepName = SUBSTRING(DepName FROM 1 FOR POSITION(': ' IN DepName) - 1)
+	WHERE POSITION(': ' IN DepName) > 0;
+---
+
+2. Add RenderedComment column to PackageComments:
+
+---
+ALTER TABLE PackageComments ADD COLUMN RenderedComment TEXT NOT NULL;
+---
+
+3. Add Terms and AcceptedTerms tables:
+
+---
+CREATE TABLE Terms (
+	ID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	Description VARCHAR(255) NOT NULL,
+	URL VARCHAR(8000) NOT NULL,
+	Revision INTEGER UNSIGNED NOT NULL DEFAULT 1,
+	PRIMARY KEY (ID)
+) ENGINE = InnoDB;
+
+CREATE TABLE AcceptedTerms (
+	UsersID INTEGER UNSIGNED NOT NULL,
+	TermsID INTEGER UNSIGNED NOT NULL,
+	Revision INTEGER UNSIGNED NOT NULL DEFAULT 0,
+	FOREIGN KEY (UsersID) REFERENCES Users(ID) ON DELETE CASCADE,
+	FOREIGN KEY (TermsID) REFERENCES Terms(ID) ON DELETE CASCADE
+) ENGINE = InnoDB;
+---

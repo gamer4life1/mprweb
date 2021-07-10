@@ -1,0 +1,57 @@
+1. Add a new table to store providers from official packages:
+
+----
+CREATE TABLE OfficialProviders (
+	ID INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	Name VARCHAR(64) NOT NULL,
+	Provides VARCHAR(64) NOT NULL,
+	PRIMARY KEY (ID)
+) ENGINE = InnoDB;
+CREATE UNIQUE INDEX ProviderNameProvides ON OfficialProviders (Name, Provides);
+----
+
+2. Resize the email address field:
+
+----
+ALTER TABLE Users MODIFY Email VARCHAR(254) NOT NULL;
+----
+
+3. Add new columns to the PackageComments table:
+
+----
+ALTER TABLE PackageComments
+	ADD COLUMN DelTS BIGINT UNSIGNED NULL DEFAULT NULL,
+	ADD COLUMN PinnedTS BIGINT UNSIGNED NOT NULL DEFAULT 0;
+----
+
+4. Update the deletion time stamp of all deleted comments:
+
+----
+UPDATE PackageComments SET DelTS = EditedTS WHERE DelUsersID IS NOT NULL;
+----
+
+5. Add new column to store the closure comment of package requests:
+
+----
+ALTER TABLE PackageRequests ADD COLUMN ClosureComment TEXT NOT NULL DEFAULT '';
+----
+
+6. Change FlaggerComment from VARCHAR to TEXT:
+
+----
+ALTER TABLE PackageBases MODIFY COLUMN FlaggerComment TEXT NOT NULL DEFAULT '';
+----
+
+7. Rename the CommentNotify table to PackageNotifications:
+
+----
+ALTER TABLE CommentNotify RENAME TO PackageNotifications;
+----
+
+8. Add new columns to store notification settings:
+
+----
+ALTER TABLE Users
+	ADD COLUMN CommentNotify TINYINT(1) NOT NULL DEFAULT 1,
+	ADD COLUMN UpdateNotify TINYINT(1) NOT NULL DEFAULT 0;
+----

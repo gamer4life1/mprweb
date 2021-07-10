@@ -1,0 +1,26 @@
+1. Add a timestamp for comment editing/deletion and an ID of the last user
+who edited a comment:
+
+----
+ALTER TABLE PackageComments
+	ADD COLUMN EditedTS BIGINT UNSIGNED NULL DEFAULT NULL,
+	ADD COLUMN EditedUsersID INTEGER UNSIGNED NULL DEFAULT NULL,
+	ADD FOREIGN KEY (EditedUsersID) REFERENCES Users(ID) ON DELETE SET NULL;
+----
+
+2. Add fields to store the ID and comment of the last user who flagged a
+package out-of-date:
+
+----
+ALTER TABLE PackageBases
+	ADD COLUMN FlaggerUID INTEGER UNSIGNED NULL DEFAULT NULL,
+	ADD COLUMN FlaggerComment VARCHAR(255) NOT NULL,
+	ADD FOREIGN KEY (FlaggerUID) REFERENCES Users(ID) ON DELETE SET NULL;
+----
+
+3. Add field to store the state of a user's email address:
+
+----
+ALTER TABLE Users
+	ADD COLUMN HideEmail TINYINT UNSIGNED NOT NULL DEFAULT 0;
+----

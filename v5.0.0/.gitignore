@@ -1,0 +1,10 @@
+dummy-data.sql*
+po/*.mo
+po/*.po~
+po/POTFILES
+web/locale/*/
+aur.git/
+__pycache__/
+*.py[cod]
+test/test-results/
+schema/aur-schema-sqlite.sql

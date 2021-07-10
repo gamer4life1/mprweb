@@ -1,0 +1,74 @@
+WARNING! Following these upgrade instructions will reset all packages! If you
+want to keep the package contents, please create a backup before starting the
+upgrade process and import the source tarballs into the Git repositories
+afterwards.
+
+1. Add a table to store SSH public keys:
+
+----
+CREATE TABLE SSHPubKeys (
+	UserID INTEGER UNSIGNED NOT NULL,
+	Fingerprint VARCHAR(44) NOT NULL,
+	PubKey VARCHAR(4096) NOT NULL,
+	PRIMARY KEY (Fingerprint),
+	FOREIGN KEY (UserID) REFERENCES Users(ID) ON DELETE CASCADE
+) ENGINE = InnoDB;
+----
+
+2. Create a new user and configure Git/SSH as described in INSTALL.
+
+3. Reset the packager field of all package bases:
+
+----
+UPDATE PackageBases SET PackagerUID = NULL;
+----
+
+4. Create a new table for package base co-maintainers:
+
+----
+CREATE TABLE PackageComaintainers (
+	UsersID INTEGER UNSIGNED NOT NULL,
+	PackageBaseID INTEGER UNSIGNED NOT NULL,
+	Priority INTEGER UNSIGNED NOT NULL,
+	INDEX (UsersID),
+	INDEX (PackageBaseID),
+	FOREIGN KEY (UsersID) REFERENCES Users(ID) ON DELETE CASCADE,
+	FOREIGN KEY (PackageBaseID) REFERENCES PackageBases(ID) ON DELETE CASCADE
+) ENGINE = InnoDB;
+----
+
+5. Add a field for the package base popularity to the PackageBases table:
+
+----
+ALTER TABLE PackageBases
+	ADD COLUMN Popularity DECIMAL(10,6) UNSIGNED NOT NULL DEFAULT 0;
+----
+
+6. Drop the category ID foreign key from the PackageBases table:
+
+`ALTER TABLE PackageBases DROP FOREIGN KEY PackageBases_ibfk_1;` should
+work in most cases. Otherwise, check the output of `SHOW CREATE TABLE
+PackageBases;` and use the foreign key name shown there.
+
+7. Replace the package base categories with keywords:
+
+----
+ALTER TABLE PackageBases DROP COLUMN CategoryID;
+DROP TABLE PackageCategories;
+
+CREATE TABLE PackageKeywords (
+	PackageBaseID INTEGER UNSIGNED NOT NULL,
+	Keyword VARCHAR(255) NOT NULL DEFAULT '',
+	PRIMARY KEY (PackageBaseID, Keyword),
+	FOREIGN KEY (PackageBaseID) REFERENCES PackageBases(ID) ON DELETE CASCADE
+) ENGINE = InnoDB;
+----
+
+8. Let Description and URL store nulls
+
+----
+ALTER TABLE Packages MODIFY Description VARCHAR(255) NULL DEFAULT NULL,
+                     MODIFY URL VARCHAR(255) NULL DEFAULT NULL;
+----
+
+9. (optional) Setup cgit to browse the Git repositories via HTTP.
