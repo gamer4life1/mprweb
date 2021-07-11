@@ -70,14 +70,7 @@ if (isset($_COOKIE["AURSID"])) {
 		<?php else: ?>
 		<div id="intro" class="box">
 			<h2>MPR <?= __("Home"); ?></h2>
-			<p>
-			<?php
-			echo __(
-				'Welcome to the MPR! Please read the %MPR Docs%s for more information.',
-				'<a href="https://docs.hunterwittenborn.com/makedeb/makedeb-package-repository/intro">',
-				'</a>',
-				);
-			?>
+			<p>Welcome to the MPR! Please read the <a href="https://docs.hunterwittenborn.com/makedeb/makedeb-package-repository/intro">MPR Docs</a> for more information.</p>
 			<?php
 			echo __(
 				'Contributed PKGBUILDs %smust%s conform to the %sMPR User Guidelines%s or they will be subject to deletion!',
