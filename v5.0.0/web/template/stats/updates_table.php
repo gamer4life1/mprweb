@@ -1,6 +1,6 @@
 <h3><?= __("Recent Updates") ?> <span class="more">(<a href="<?= get_uri('/packages/') ?>?SB=l&amp;SO=d"><?= __('more') ?></a>)</span></h3>
 
-<a href="<?= get_uri('/rss/') ?>" title="Arch Package Updates RSS Feed" class="rss-icon"><img src="/images/rss.svg" alt="RSS Feed" /></a>
+<a href="<?= get_uri('/rss/') ?>" title="MPR Updates RSS Feed" class="rss-icon"><img src="/images/rss.svg" alt="RSS Feed" /></a>
 
 <table>
 	<tbody>
