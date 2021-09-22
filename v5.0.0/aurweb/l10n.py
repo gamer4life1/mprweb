@@ -9,6 +9,7 @@ class Translator:
         self._translator = {}
 
     def translate(self, s, lang):
+        return s
         if lang == 'en':
             return s
         if lang not in self._translator:
