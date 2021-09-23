@@ -1,16 +1,48 @@
-# mprweb
-mprweb is the platform that powers the makedeb User Repository (MPR).
+aurweb
+======
 
-mprweb is based on the [aurweb](https://gitlab.archlinux.org/archlinux/aurweb) platform, from which almost all of its features are taken.
+aurweb is a hosting platform for the Arch User Repository (AUR), a collection
+of packaging scripts that are created and submitted by the Arch Linux
+community. The scripts contained in the repository can be built using `makepkg`
+and installed using the Arch Linux package manager `pacman`.
 
-In addition to the base that aurweb lays, mprweb makes some patches and changes to work better with makedeb and within the Debian/Ubuntu ecosystem.
+The aurweb project includes
 
-## Directory layout
-Folders are created with the name of the upstream tag (i.e. `v5.0.0` points to the `v5.0.0` tag for aurweb).
+* A web interface to search for packaging scripts and display package details.
+* An SSH/Git interface to submit and update packages and package meta data.
+* Community features such as comments, votes, package flagging and requests.
+* Editing/deletion of packages and accounts by Trusted Users and Developers.
+* Area for Trusted Users to post AUR-related proposals and vote on them.
 
-Each folder contains all patches already applied, and can simply be downloaded and set up.
+Directory Layout
+----------------
 
-## Releases
-Releases are periodically made, under the name `[upstream_tag]-patch[number]`, where `[upstream_tag]` is the upstream version, and `[number]` is the revision of said release.
+* `aurweb`: aurweb Python modules, Git interface and maintenance scripts
+* `conf`: configuration and configuration templates
+* `doc`: project documentation
+* `po`: translation files for strings in the aurweb interface
+* `schema`: schema for the SQL database
+* `test`: test suite and test cases
+* `upgrading`: instructions for upgrading setups from one release to another
+* `web`: web interface for the AUR
 
-`[number]` will be bumped whenever changes (such as bug fixes) are made, and `[upstreag_tag]` will be changed whenever upstream bumps their version.
+Links
+-----
+
+* The repository is hosted at git://git.archlinux.org/aurweb.git -- see
+  doc/CodingGuidelines for information on the patch submission process.
+
+* Bugs can (and should) be submitted to the aurweb bug tracker:
+  https://bugs.archlinux.org/index.php?project=2
+
+* Questions, comments, and patches related to aurweb can be sent to the AUR
+  development mailing list: aur-dev@archlinux.org -- mailing list archives:
+  https://mailman.archlinux.org/mailman/listinfo/aur-dev
+
+Translations
+------------
+
+Translations are welcome via our Transifex project at
+https://www.transifex.com/lfleischer/aurweb; see `doc/i18n.txt` for details.
+
+![Transifex](http://www.transifex.net/projects/p/aurweb/chart/image_png)
