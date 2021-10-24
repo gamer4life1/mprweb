@@ -93,7 +93,7 @@ if (isset($_COOKIE["AURSID"])) {
 			<div class="article-content">
 			<?php if (config_section_exists('fingerprints')): ?>
 			<p>
-				<?= __('The following SSH fingerprints are used for the AUR:') ?>
+				<?= __('The following SSH fingerprints are used for the MPR:') ?>
 			</p>
 			<ul>
 				<?php foreach (config_items('fingerprints') as $type => $fingerprint): ?>
